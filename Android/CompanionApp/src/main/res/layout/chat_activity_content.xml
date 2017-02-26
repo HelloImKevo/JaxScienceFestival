@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_hexabump_pattern"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.activity.ChatActivity"
+    tools:showIn="@layout/app_bar_chat">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow_spoof"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_small">
+
+        <RelativeLayout
+            android:id="@+id/container_profile_picture"
+            android:layout_width="@dimen/chat_profile_picture_size"
+            android:layout_height="@dimen/chat_profile_picture_size"
+            android:background="@drawable/bg_round_profile_picture">
+
+            <ImageView
+                android:id="@+id/img_profile_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_xsmall"
+                tools:src="@drawable/profile_woman_2"/>
+        </RelativeLayout>
+
+        <com.schanz.core.view.FontTextView
+            android:id="@+id/lbl_name"
+            style="@style/TextView.Label.Bold"
+            android:layout_gravity="start"
+            android:layout_marginEnd="@dimen/padding_small"
+            android:layout_marginStart="@dimen/padding_small"
+            android:textSize="@dimen/text_size_xlarge"
+            tools:text="Claire"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.schanz.jaxsciencefestival.ui.view.ChatMessageHistoryListView
+            android:id="@+id/chat_message_history_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="visible"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_positive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="POSITIVE"/>
+
+        <Button
+            android:id="@+id/btn_neutral"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="NEUTRAL"/>
+
+        <Button
+            android:id="@+id/btn_negative"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="NEGATIVE"/>
+    </LinearLayout>
+</LinearLayout>

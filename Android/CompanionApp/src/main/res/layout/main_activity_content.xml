@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_hexabump_pattern"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.schanz.jaxsciencefestival.ui.view.NewsDashboardListView
+            android:id="@+id/news_dashboard_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="visible"/>
+
+        <com.schanz.jaxsciencefestival.ui.view.ChatDashboardListView
+            android:id="@+id/chat_dashboard_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="gone"/>
+
+        <com.schanz.jaxsciencefestival.ui.view.QuizDashboardView
+            android:id="@+id/quiz_dashboard_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="gone"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_atlantis"
+        app:itemIconTint="@color/nav_icon_white_states"
+        app:itemTextColor="@color/nav_icon_white_states"
+        app:menu="@menu/bottom_navigation_main"/>
+</LinearLayout>

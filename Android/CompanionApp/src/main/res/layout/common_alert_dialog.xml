@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="460dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_alert_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/label_title"
+        style="@style/TextView.Label.AllCaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        tools:text="Alert Title" />
+
+    <TextView
+        android:id="@+id/label_message"
+        style="@style/TextView.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_alert_dialog_message"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="20dp"
+        android:textSize="@dimen/text_size_small"
+        tools:text="Lorem ipsum dolor sit amet" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_negative"
+                style="@style/Button.Gray.Weighted"
+                android:layout_marginRight="8dp"
+                tools:text="No" />
+
+            <Button
+                android:id="@+id/btn_positive"
+                style="@style/Button.Blue.Weighted"
+                tools:text="Yes" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_neutral"
+            style="@style/Button.Gray"
+            android:layout_width="match_parent"
+            tools:text="Neutral"
+            tools:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>
