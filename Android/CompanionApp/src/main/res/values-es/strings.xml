@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acciones Evaluar</string>
+
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_ask">Pedir</string>
+    <string name="common_bid">Oferta</string>
+    <string name="common_volume_abbr">Vol</string>
+</resources>

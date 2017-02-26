@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/white_cararra"
+    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+    card_view:cardPreventCornerOverlap="false"
+    tools:layout_width="360dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/padding_medium"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/detail_view_side_padding"
+        android:paddingStart="@dimen/detail_view_side_padding">
+
+        <!-- Header Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Symbol, Name, Change, Date -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lbl_symbol"
+                    style="@style/TextView.Label.Bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/text_size_xlarge"
+                    tools:text="SYMBO"/>
+
+                <TextView
+                    android:id="@+id/lbl_name"
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_tiny"
+                    android:textSize="@dimen/text_size_tiny"
+                    tools:text="Ultra Corp, Inc."/>
+
+                <TextView
+                    android:id="@+id/lbl_percent_change"
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:textSize="@dimen/text_size_large"
+                    tools:text="-50.75%"
+                    tools:textColor="@color/red_thunderbird"/>
+
+                <TextView
+                    android:id="@+id/lbl_updated_at"
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="Monday January 5, 2000 @ 5:00 PM"/>
+            </LinearLayout>
+
+            <!-- TODO: Stock Evaluation Rankings -->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical">
+
+                <com.schanz.jaxsciencefestival.ui.view.RingIndicatorView
+                    android:id="@+id/ring_indicator_view"
+                    android:layout_width="@dimen/chat_profile_picture_size"
+                    android:layout_height="@dimen/chat_profile_picture_size"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/lbl_formula_rating"
+                    style="@style/TextView.Label.Bold"
+                    android:layout_centerInParent="true"
+                    android:gravity="end"
+                    android:textSize="@dimen/text_size_xheader"
+                    tools:text="8"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/star"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/star"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/star"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_volume_abbr"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_volume"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="50.75M"/>
+        </LinearLayout>
+
+        <!-- Ask -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_ask"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_ask"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="$152.85"/>
+        </LinearLayout>
+
+        <!-- Bid -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_bid"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_bid"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="$150.25"/>
+        </LinearLayout>
+
+        <!-- Dividend (Quarterly) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_dividend_quarterly_abbr"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_dividend_quarterly"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="$5.25"/>
+        </LinearLayout>
+
+        <!-- Average Daily Volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_average_daily_volume_abbr"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_average_daily_volume"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="47.89M"/>
+        </LinearLayout>
+
+        <!-- Market Cap -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_market_cap"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_market_cap"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="525.42M"/>
+        </LinearLayout>
+
+        <!-- Change -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_change"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_change"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="-5.67"/>
+        </LinearLayout>
+
+        <!-- Change (Year High) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_change_year_high"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_change_year_high"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="-12.52"/>
+        </LinearLayout>
+
+        <!-- Change (Year Low) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_change_year_low"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_change_year_low"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="+8.94"/>
+        </LinearLayout>
+
+        <!-- Year High -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_year_high"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_year_high"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="$178.99"/>
+        </LinearLayout>
+
+        <!-- Year Low -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_year_low"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_year_low"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="$120.17"/>
+        </LinearLayout>
+
+        <!-- Currency -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_currency"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_currency"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="USD"/>
+        </LinearLayout>
+
+        <!-- Stock Exchange -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Label.AllCaps.SingleLine"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/common_stock_exchange"
+                android:textSize="@dimen/text_size_tiny"/>
+
+            <TextView
+                android:id="@+id/lbl_stock_exchange"
+                style="@style/TextView.Label"
+                android:gravity="end"
+                tools:text="NMS"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lbl_rss_headline_dump"
+            style="@style/TextView.Label"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_small"
+            android:autoLink="web"
+            android:text="@string/common_bid"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Rss headline data dump... www.google.com"/>
+
+        <TextView
+            android:id="@+id/lbl_dump"
+            style="@style/TextView.Label"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_small"
+            android:text="@string/common_bid"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Object data dump..."/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+

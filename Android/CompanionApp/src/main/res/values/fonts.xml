@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
+
+    <string name="font_century_gothic_bold" translatable="false">century_gothic/bold.ttf</string>
+    <string name="font_century_gothic_bold_italic" translatable="false">century_gothic/bold_italic.ttf</string>
+    <string name="font_century_gothic_italic" translatable="false">century_gothic/italic.ttf</string>
+    <string name="font_century_gothic_regular" translatable="false">century_gothic/regular.ttf</string>
+
+</resources>

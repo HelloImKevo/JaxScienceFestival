@@ -1,0 +1,240 @@
+<resources>
+    <string name="app_name">JSF Companion</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_recreate_data">Recreate Data</string>
+    <string name="action_dev_tools">Dev Tools</string>
+
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_back">Back</string>
+    <string name="common_ask">Ask</string>
+    <string name="common_bid">Bid</string>
+    <string name="common_change">Change</string>
+    <string name="common_change_year_high">Change (Year High)</string>
+    <string name="common_change_year_low">Change (Year Low)</string>
+    <string name="common_year_high">Year High</string>
+    <string name="common_year_low">Year Low</string>
+    <string name="common_currency">Currency</string>
+    <string name="common_stock_exchange">Stock Exchange</string>
+    <string name="common_market_cap">Market Cap</string>
+    <string name="common_volume_abbr">Vol</string>
+    <string name="common_dividend_quarterly_abbr">Div (Qr)</string>
+    <string name="common_average_daily_volume_abbr">Ave Vol</string>
+
+    <string name="common_null_value">\u2014\u2014</string>
+
+    <string name="common_news">News</string>
+    <string name="common_chat">Chat</string>
+    <string name="common_quiz">Quiz</string>
+
+    <string name="percent_change_negative_format">-%1$s%%</string>
+    <string name="percent_change_no_change_format">%1$s%%</string>
+    <string name="percent_change_positive_format">+%1$s%%</string>
+
+    <string-array name="progress_dialog_messages">
+        <item>Crunching numbers&#8230;</item>
+        <item>Evaluating data&#8230;</item>
+        <item>Analyzing values&#8230;</item>
+        <item>Running algorithms&#8230;</item>
+        <item>Configuring AI Companions&#8230;</item>
+        <item>Generating Quiz Questions&#8230;</item>
+        <item>Creating Event Headlines&#8230;</item>
+    </string-array>
+
+    <string-array name="user_greeting_strings">
+        <item>Hi</item>
+        <item>Hello</item>
+        <item>Good morning</item>
+        <item>Good afternoon</item>
+        <item>Good evening</item>
+        <item>Good day</item>
+    </string-array>
+
+    <string-array name="user_question_strings">
+        <item>\?</item>
+        <item>do</item>
+        <item>when</item>
+        <item>what</item>
+        <item>why</item>
+    </string-array>
+
+    <string-array name="user_positive_strings">
+        <item>\!</item>
+        <item>Sure</item>
+        <item>Yes</item>
+        <item>Yep</item>
+        <item>Yeah</item>
+        <item>Totally</item>
+        <item>Of course</item>
+        <item>All the time</item>
+    </string-array>
+
+    <string-array name="user_negative_strings">
+        <item>Not really</item>
+        <item>Not now</item>
+        <item>Absolutely not</item>
+        <item>No way</item>
+        <item>Go away</item>
+        <item>I don\'t like you</item>
+        <item>Hate</item>
+        <item>Shut up</item>
+    </string-array>
+
+    <string-array name="greeting_positive_messages">
+        <item>Hey it\'s been a while, how have you been?</item>
+        <item>How are you doing today?</item>
+        <item>Hi!</item>
+        <item>What\'s up?</item>
+        <item>Nice to hear from you!</item>
+        <item>What a pleasant surprise!</item>
+        <item>What\'s new with you?</item>
+    </string-array>
+
+    <string-array name="greeting_negative_messages">
+        <item>Just leave me alone.</item>
+        <item>I\'m not in the mood.</item>
+        <item>Bye.</item>
+        <item>Talk to you soon.</item>
+        <item>We can talk about it later.</item>
+    </string-array>
+
+    <string-array name="greeting_neutral_messages">
+        <item>Hello.</item>
+        <item>Hi there.</item>
+        <item>How are you?</item>
+        <item>I\'m busy right now.</item>
+        <item>Sorry - can\'t talk right now.</item>
+    </string-array>
+
+    <string-array name="question_positive_messages">
+        <item>Have you thought of any interesting paradoxes lately?</item>
+        <item>We\'re gonna go to the movies tonight, wanna come?</item>
+        <item>What\'s your favorite subject - Science, Technology, 
+            Engineering, Art, or Math?</item>
+        <item>Have you ever been to the MOSH?</item>
+        <item>Have you considered becoming a mentor?</item>
+        <item>Did you see that booth showcasing Nanotechnology?</item>
+        <item>Have you thought about Biomedical engineering?</item>
+        <item>The Chemical engineering exhibit is awesome - have you seen it?</item>
+        <item>Which exhibit do you think is the most interesting?</item>
+        <item>Did you have any interesting ideas for a booth?</item>
+        <item>Did you hear that presentation about Genetic engineering?</item>
+    </string-array>
+
+    <string-array name="question_neutral_messages">
+        <item>When did you last see the doctor?</item>
+        <item>Are you sure?</item>
+        <item>Do you live in Jacksonville?</item>
+        <item>Why is that?</item>
+        <item>Did you eat breakfast this morning?</item>
+        <item>Did you sleep well last night?</item>
+        <item>Have you been to the gym lately?</item>
+        <item>Why does that matter?</item>
+        <item>About what?</item>
+        <item>What do you want to know?</item>
+        <item>What does that mean?</item>
+        <item>Why not?</item>
+        <item>What should we talk about now?</item>
+    </string-array>
+
+    <string-array name="question_negative_messages">
+        <item>Have you thought of any interesting paradoxes lately?</item>
+        <item>Can\'t you take a hint?</item>
+        <item>Where did you come up with that idea?</item>
+        <item>Are you seriously considering that?</item>
+    </string-array>
+
+    <string-array name="statement_positive_messages">
+        <item>The weather is excellent today!</item>
+        <item>Positive :)</item>
+        <item>Exactly!</item>
+        <item>Maybe we should volunteer for the event.</item>
+        <item>I attended a lecture about GMOs - it was really interesting!</item>
+        <item>I like it when it\'s sunny!</item>
+    </string-array>
+
+    <string-array name="statement_neutral_messages">
+        <item>I think I\'ll go for a walk today.</item>
+        <item>I need to go check on the neighbor\'s dog.</item>
+        <item>You should try yoga sometime.</item>
+        <item>I\'m not sure how I feel about that.</item>
+        <item>Maybe another time.</item>
+        <item>Not a cloud in the sky.</item>
+        <item>When it rains, it pours.</item>
+        <item>I don\'t think they have much credibility.</item>
+        <item>More of a delay than anything.</item>
+        <item>I can deal with that.</item>
+        <item>An interesting thought just occurred to me&#8230;</item>
+    </string-array>
+
+    <string-array name="statement_negative_messages">
+        <item>I don\'t think that\'s a good idea.</item>
+        <item>I really don\'t like the sound of that.</item>
+        <item>Makes me a little uneasy&#8230;</item>
+        <item>That\'s preposterous!</item>
+    </string-array>
+
+    <string-array name="response_positive_messages">
+        <item>Absolutely, I\'m down for that!</item>
+        <item>Sure let\'s do it :)</item>
+        <item>Of course! I need just a few minutes.</item>
+        <item>Whoa that\'s crazy!</item>
+        <item>Fine, thanks!</item>
+        <item>Ah, interesting!</item>
+        <item>Sweet!</item>
+        <item>Very cool.</item>
+        <item>Thanks!</item>
+        <item>I knew it!</item>
+    </string-array>
+
+    <string-array name="response_neutral_messages">
+        <item>I\'m not sure how I feel about that.</item>
+        <item>Maybe another time.</item>
+        <item>I suppose that couldn\'t hurt.</item>
+        <item>If the juice is worth the squeeze.</item>
+        <item>I could really use a drink right now.</item>
+        <item>Not too bad, busy as ever.</item>
+        <item>Oh, fine&#8230; You know how it is.</item>
+        <item>You know.</item>
+        <item>Maybe&#8230;</item>
+        <item>You\'re welcome.</item>
+        <item>Sorry to hear that.</item>
+        <item>That may be true.</item>
+    </string-array>
+
+    <string-array name="response_negative_messages">
+        <item>That was kind of ignorant.</item>
+        <item>Next time think before you speak?</item>
+        <item>You\'re pretty rude.</item>
+        <item>It hurt my feelings.</item>
+        <item>I don\'t know.</item>
+        <item>No you don\'t.</item>
+        <item>No.</item>
+        <item>Absolutely not.</item>
+        <item>Keep telling yourself that.</item>
+        <item>That isn\'t nice!</item>
+    </string-array>
+
+    <string-array name="unique_male_statement_messages">
+        <item>Dude, we should hit the bar this weekend.</item>
+        <item>Let\'s go shoot some pool later this week.</item>
+        <item>Just took my truck into the shop, got a bad fuel injector.</item>
+        <item>You been watching the news? My retirement plan is tanking&#8230;</item>
+        <item>I think a degree in Robotics engineering would be pretty cool.</item>
+        <item>I saw a movie the other day about a guy that escapes from prison; 
+            for the life of me I can\'t remember the name of it.</item>
+    </string-array>
+
+    <string-array name="unique_female_statement_messages">
+        <item>I\'m thinking about adopting a puppy :)</item>
+        <item>My boss really creeps me out.</item>
+        <item>I got a flat tire on the way to work, what a disaster :(</item>
+        <item>We should really check out that new restaurant!</item>
+        <item>Growing up, I really wanted to be a veterinarian.</item>
+        <item>My sister became a Registered Nurse!</item>
+    </string-array>
+</resources>

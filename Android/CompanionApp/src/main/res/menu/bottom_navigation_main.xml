@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_news"
+        android:enabled="true"
+        android:icon="@drawable/ic_news_white_24dp"
+        android:title="@string/common_news"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_chat"
+        android:enabled="true"
+        android:icon="@drawable/ic_chat_bubble_white_24dp"
+        android:title="@string/common_chat"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_quiz"
+        android:enabled="true"
+        android:icon="@drawable/ic_quiz_question_white_24dp"
+        android:title="@string/common_quiz"
+        app:showAsAction="ifRoom" />
+</menu>

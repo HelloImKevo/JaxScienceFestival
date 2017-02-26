@@ -1,0 +1,74 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="190dp"
+        android:background="#fae">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="12dp"
+            android:paddingRight="0dp"
+            android:paddingLeft="8dp"
+            tools:ignore="contentDescription" />
+
+        <ImageView
+            android:id="@+id/spotlight_tower"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:visibility="invisible"
+            tools:ignore="contentDescription"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/spotlight_ground"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.5"
+            android:visibility="invisible"
+            tools:ignore="contentDescription"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="28dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_bar_fill"
+                tools:progress="75" />
+
+            <TextView
+                android:id="@+id/label_progress_event"
+                style="@style/TextView.Label"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="initializing...."
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_small" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</FrameLayout>

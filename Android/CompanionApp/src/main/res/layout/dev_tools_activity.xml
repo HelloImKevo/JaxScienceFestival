@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ddd"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Scroll View Child -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Drawable Test -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/test_bullseye_circle"/>
+
+                <com.schanz.jaxsciencefestival.ui.view.RingIndicatorView
+                    android:id="@+id/ring_indicator_view_1"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.schanz.jaxsciencefestival.ui.view.RingIndicatorView
+                    android:id="@+id/ring_indicator_view_2"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"/>
+
+                <com.schanz.jaxsciencefestival.ui.view.RingIndicatorView
+                    android:id="@+id/ring_indicator_view_3"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"/>
+            </LinearLayout>
+
+            <!-- Color Test -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_take_flight"
+                    android:gravity="center"
+                    android:text="Take Flight"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/black_space"
+                    android:gravity="center"
+                    android:text="Space Black"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/gray_one"
+                    android:gravity="center"
+                    android:text="One"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/green_shamrock"
+                    android:gravity="center"
+                    android:text="Shamrock"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/green_emerald"
+                    android:gravity="center"
+                    android:text="Emerald"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/green_eucalyptus"
+                    android:gravity="center"
+                    android:text="Eucalyptus"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_cinnabar"
+                    android:gravity="center"
+                    android:text="Cinnabar"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_pomegranate"
+                    android:gravity="center"
+                    android:text="Pomegranate"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/orange_buttercup"
+                    android:gravity="center"
+                    android:text="Buttercup"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/orange_california"
+                    android:gravity="center"
+                    android:text="California"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/blue_chambray"
+                    android:gravity="center"
+                    android:text="Chambray"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/blue_royal_blue"
+                    android:gravity="center"
+                    android:text="Royal Blue"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/blue_dodger_blue"
+                    android:gravity="center"
+                    android:text="Dodger Blue"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/yellow_ripe_lemon"
+                    android:gravity="center"
+                    android:text="Ripe Lemon"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/yellow_saffron"
+                    android:gravity="center"
+                    android:text="Saffron"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/purple_honey_flower"
+                    android:gravity="center"
+                    android:text="Honey Flower"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/purple_plum"
+                    android:gravity="center"
+                    android:text="Plum"/>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/purple_wisteria"
+                    android:gravity="center"
+                    android:text="Wisteria"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/Button.Red"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/common_back"
+            android:textSize="@dimen/text_size_large"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_slate"/>
+
+        <Button
+            android:id="@+id/btn_do_magic"
+            style="@style/Button.Green"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Do Magic"
+            android:textSize="@dimen/text_size_large"/>
+    </LinearLayout>
+
+</LinearLayout>

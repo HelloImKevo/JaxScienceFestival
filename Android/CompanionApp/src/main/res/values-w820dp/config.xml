@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Miscellaneous Configuration Values -->
+<resources>
+    <!-- Intended for landscape orientation -->
+    <bool name="tablet_configuration">true</bool>
+</resources>
