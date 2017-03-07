@@ -13,50 +13,51 @@ import com.schanz.jaxsciencefestival.R;
 
 public class SplashScreenActivity extends Activity implements View.OnTouchListener {
 
-    private static final long SPLASH_TIME = 2 * 1000;
-    private AsyncTask<Void, Void, Void> mSplashScreenTask;
+    private static final long SPLASH_TIME = 5 * 1000;
+    private static AsyncTask<Void, Void, Void> sSplashScreenTask;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: Enable Crittercism on Release Builds Only
-        // Crittercism.initialize(getApplicationContext(), App.CRITTERCISM_APP_ID);
-        // Crittercism.setUsername("kschanz");
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.splash_screen_activity);
 
-        ViewGroup splashLayout = (ViewGroup)findViewById(R.id.splash_container);
+        ViewGroup splashLayout = (ViewGroup) findViewById(R.id.splash_container);
         splashLayout.setOnTouchListener(this);
 
-        mSplashScreenTask = new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... arg0) {
-                try {
-                    Thread.sleep(SPLASH_TIME);
-                } catch (InterruptedException e) {
-                    // Do nothing
+        if (sSplashScreenTask == null) {
+            sSplashScreenTask = new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... arg0) {
+                    try {
+                        Thread.sleep(SPLASH_TIME);
+                    } catch (InterruptedException e) {
+                        // Do nothing
+                    }
+                    return null;
                 }
-                return null;
-            }
 
-            @Override
-            protected void onPostExecute(Void nothing) {
-                endSplashScreen();
-            }
-        }.execute();
+                @Override
+                protected void onPostExecute(Void nothing) {
+                    endSplashScreen();
+                }
+            }.execute();
+        }
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        System.gc();
+    protected void onPause() {
+        super.onPause();
+        if (sSplashScreenTask != null) {
+            sSplashScreenTask.cancel(true);
+        }
+        sSplashScreenTask = null;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        mSplashScreenTask.cancel(true);
+        sSplashScreenTask.cancel(true);
         v.performClick();
         endSplashScreen();
         return false;
@@ -64,6 +65,5 @@ public class SplashScreenActivity extends Activity implements View.OnTouchListen
 
     private void endSplashScreen() {
         startActivity(new Intent(this, MainActivity.class));
-        finish();
     }
 }

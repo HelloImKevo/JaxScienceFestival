@@ -4,14 +4,38 @@
     android:id="@+id/splash_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_shamrock">
+    android:background="@drawable/bg_molecule_pattern">
 
-    <com.schanz.core.view.FontTextView
-        style="@style/TextView.Label.Light.Bold"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="TEMPORARY STRING"
-        android:textSize="@dimen/text_size_header"/>
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/jsf_chem_logo"
+            android:tint="@color/white_cararra"/>
+
+        <com.schanz.core.view.FontTextView
+            style="@style/TextView.Label.Light.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_xxlarge"
+            android:gravity="center"
+            android:text="JSF Companion App"
+            android:textColor="@color/white_cocaine"
+            android:textSize="@dimen/text_size_xheader"/>
+
+        <ImageView
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_xxlarge"
+            android:src="@drawable/splash_logo"/>
+    </LinearLayout>
 
 </RelativeLayout>

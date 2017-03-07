@@ -10,5 +10,9 @@ public abstract class AiCompanion {
     public abstract void onUserResponse(@NonNull Message message);
 
     @NonNull
-    public abstract Message getMessage(@NonNull Context c, @NonNull Message.Type type, @NonNull Message.Mood mood);
+    public abstract Message getMessage(
+            @NonNull Context c,
+            @NonNull Message.Source source,
+            @NonNull Message.Type type,
+            @NonNull Message.Mood mood);
 }

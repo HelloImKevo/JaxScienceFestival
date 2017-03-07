@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,11 @@ import com.schanz.jaxsciencefestival.App;
 import com.schanz.jaxsciencefestival.R;
 import com.schanz.jaxsciencefestival.ai.ChatCompanion;
 import com.schanz.jaxsciencefestival.manager.ChatManager;
+import com.schanz.jaxsciencefestival.manager.NewsManager;
+import com.schanz.jaxsciencefestival.manager.QuizManager;
 import com.schanz.jaxsciencefestival.model.DataBlob;
 import com.schanz.jaxsciencefestival.model.NewsEvent;
+import com.schanz.jaxsciencefestival.model.QuizQuestion;
 import com.schanz.jaxsciencefestival.presenter.MainPresenter;
 import com.schanz.jaxsciencefestival.presenter.MainView;
 import com.schanz.jaxsciencefestival.presenter.PresenterManager;
@@ -148,7 +152,11 @@ public class MainActivity extends BaseActivity implements
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sponsors) {
+            startActivity(new Intent(MainActivity.this, SponsorsActivity.class));
+            return true;
+        } else if (id == R.id.action_settings) {
+            Toast.makeText(this, "Settings Not Implemented", Toast.LENGTH_LONG).show();
             return true;
         } else if (id == R.id.action_recreate_data) {
             mPresenter.recreateData(this);
@@ -256,7 +264,8 @@ public class MainActivity extends BaseActivity implements
             @Override
             public void onItemSelected(@NonNull NewsEvent item) {
                 Logger.i(TAG, "onNewsStory selected.......");
-                // TODO: Start the news event details activity
+                NewsManager.instance().setSelectedNewsEvent(item);
+                startActivity(new Intent(MainActivity.this, NewsActivity.class));
             }
         });
         chatDashboardListView.setListener(new ChatDashboardListView.Listener() {
@@ -265,6 +274,15 @@ public class MainActivity extends BaseActivity implements
                 Logger.i(TAG, "onChatCompanion selected.......");
                 ChatManager.instance().setSelectedChatCompanion(item);
                 startActivity(new Intent(MainActivity.this, ChatActivity.class));
+            }
+        });
+        quizDashboardView.setListener(new QuizDashboardView.Listener() {
+            @Override
+            public void onCategorySelected(@NonNull QuizQuestion.Type category) {
+                Logger.i(TAG, "onCategorySelected selected......." + category);
+                QuizManager.instance().setQuizQuestions(
+                        QuizQuestion.getByType(category, mPresenter.model().getQuizQuestions()));
+                startActivity(new Intent(MainActivity.this, QuizActivity.class));
             }
         });
     }

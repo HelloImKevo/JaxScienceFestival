@@ -3,7 +3,6 @@ package com.schanz.jaxsciencefestival.ui.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,14 +75,22 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
     public static class ChatMessageViewHolder extends BaseViewHolder<Message> {
 
         @NonNull
-        CardView cardView;
+        ViewGroup container;
 
-        @BindView(R.id.lbl_name)
-        TextView lblName;
-        @BindView(R.id.lbl_message_header)
-        TextView lblMessageHeader;
+        @BindView(R.id.lbl_message)
+        TextView lblMessage;
         @BindView(R.id.lbl_message_date)
         TextView lblMessageDate;
+
+        @BindView(R.id.side_bubble_indicator_left)
+        View sideBubbleIndicatorLeft;
+        @BindView(R.id.side_bubble_indicator_right)
+        View sideBubbleIndicatorRight;
+
+        @BindView(R.id.side_triangle_indicator_left)
+        View sideTriangleIndicatorLeft;
+        @BindView(R.id.side_triangle_indicator_right)
+        View sideTriangleIndicatorRight;
 
         @Nullable
         private Message mModel;
@@ -93,8 +100,8 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
                     .inflate(R.layout.chat_message_view_holder, parent, false));
 
             ButterKnife.bind(this, view());
-            cardView = (CardView) view();
-            cardView.setOnClickListener(new View.OnClickListener() {
+            container = (ViewGroup) view();
+            container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null && mModel != null) {
@@ -109,8 +116,24 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.
             mModel = item;
             if (item != null) {
                 Context context = view().getContext();
-                lblName.setText(item.text);
+                lblMessage.setText(item.text);
                 lblMessageDate.setText(StringHelper.toDateAtTime(new Date()));
+                switch (item.source) {
+                    case AI:
+                        sideBubbleIndicatorLeft.setVisibility(View.VISIBLE);
+                        sideTriangleIndicatorLeft.setVisibility(View.VISIBLE);
+                        sideBubbleIndicatorRight.setVisibility(View.GONE);
+                        sideTriangleIndicatorRight.setVisibility(View.GONE);
+                        break;
+
+                    case USER:
+                    default:
+                        sideBubbleIndicatorLeft.setVisibility(View.GONE);
+                        sideTriangleIndicatorLeft.setVisibility(View.GONE);
+                        sideBubbleIndicatorRight.setVisibility(View.VISIBLE);
+                        sideTriangleIndicatorRight.setVisibility(View.VISIBLE);
+                        break;
+                }
             }
         }
     }

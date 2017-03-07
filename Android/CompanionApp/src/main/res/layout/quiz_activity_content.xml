@@ -5,82 +5,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_hexabump_pattern"
+    android:background="@drawable/bg_molecule_pattern"
     android:orientation="vertical"
+    android:padding="@dimen/padding_large"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.activity.QuizActivity"
     tools:showIn="@layout/app_bar_quiz">
 
+    <!-- Container Quiz Question -->
     <LinearLayout
+        android:id="@+id/container_engineering"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow_spoof"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_small">
+        android:layout_height="220dp"
+        android:orientation="vertical"
+        android:background="@color/white_cararra">
 
         <RelativeLayout
-            android:id="@+id/container_profile_picture"
-            android:layout_width="@dimen/chat_profile_picture_size"
-            android:layout_height="@dimen/chat_profile_picture_size"
-            android:background="@drawable/bg_round_profile_picture">
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
 
-            <ImageView
-                android:id="@+id/img_profile_picture"
+            <View
+                android:id="@+id/header_color"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/padding_xsmall"
-                tools:src="@drawable/profile_woman_2"/>
+                android:layout_height="60dp"
+                android:background="@color/purple_universe"/>
+
+            <!-- Category Icon -->
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/padding_large">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_circle_white_24dp"
+                    android:tint="@color/white_cararra"/>
+
+                <ImageView
+                    android:id="@+id/ring_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ring_indicator_thin_white"
+                    android:tint="@color/purple_universe"/>
+
+                <ImageView
+                    android:id="@+id/image_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/padding_large"
+                    android:src="@drawable/ic_engineering_gears_white_24dp"
+                    android:tint="@color/purple_universe"/>
+            </RelativeLayout>
         </RelativeLayout>
 
         <com.schanz.core.view.FontTextView
-            android:id="@+id/lbl_name"
+            android:id="@+id/lbl_category"
             style="@style/TextView.Label.Bold"
-            android:layout_gravity="start"
-            android:layout_marginEnd="@dimen/padding_small"
-            android:layout_marginStart="@dimen/padding_small"
-            android:text="TEMP QUIZ STRING"
-            android:textSize="@dimen/text_size_xlarge"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_small"
+            android:text="Engineering Question"
+            android:textColor="@color/purple_universe"
+            android:textSize="@dimen/text_size_large"/>
+
+        <com.schanz.core.view.FontTextView
+            android:id="@+id/lbl_question"
+            style="@style/TextView.Label"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_medium"
+            android:gravity="center_horizontal"
+            android:text="Two trains leave a city station at the same time. The first train is travelling 60mph."
+            android:textSize="@dimen/text_size_large"/>
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <com.schanz.jaxsciencefestival.ui.view.ChatMessageHistoryListView
-            android:id="@+id/chat_message_history_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:visibility="visible"/>
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_positive"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <!-- Answer A -->
+        <LinearLayout
+            android:id="@+id/answer_a"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_large"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="QUIZ A"/>
+            android:background="@color/white_cararra"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_neutral"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="QUIZ B"/>
+            <com.schanz.core.view.FontTextView
+                style="@style/TextView.Label.Bold"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/green_aegean_sea"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/white_cararra"
+                android:textSize="@dimen/text_size_huge"/>
 
-        <Button
-            android:id="@+id/btn_negative"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/answer_a_text"
+                style="@style/TextView.Label"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/padding_xlarge"
+                android:layout_marginStart="@dimen/padding_xlarge"
+                android:gravity="center_vertical"
+                android:text="The first train arrives 5 minutes before the second train."
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
+
+        <!-- Answer B -->
+        <LinearLayout
+            android:id="@+id/answer_b"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_large"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="QUIZ C"/>
+            android:background="@color/white_cararra">
+
+            <com.schanz.core.view.FontTextView
+                style="@style/TextView.Label.Bold"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/purple_universe"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/white_cararra"
+                android:textSize="@dimen/text_size_huge"/>
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/answer_b_text"
+                style="@style/TextView.Label"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/padding_xlarge"
+                android:layout_marginStart="@dimen/padding_xlarge"
+                android:gravity="center_vertical"
+                android:text="The second train never arrives at the first station."
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
+
+        <!-- Answer C -->
+        <LinearLayout
+            android:id="@+id/answer_c"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:layout_weight="1"
+            android:background="@color/white_cararra">
+
+            <com.schanz.core.view.FontTextView
+                style="@style/TextView.Label.Bold"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/red_cinnabar"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/white_cararra"
+                android:textSize="@dimen/text_size_huge"/>
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/answer_c_text"
+                style="@style/TextView.Label"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/padding_xlarge"
+                android:layout_marginStart="@dimen/padding_xlarge"
+                android:gravity="center_vertical"
+                android:text="Both trains eventually arrive at the same destination."
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
+
+        <!-- Answer D -->
+        <LinearLayout
+            android:id="@+id/answer_d"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:layout_weight="1"
+            android:background="@color/white_cararra">
+
+            <com.schanz.core.view.FontTextView
+                style="@style/TextView.Label.Bold"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/yellow_polished_gold"
+                android:gravity="center"
+                android:text="D"
+                android:textColor="@color/white_cararra"
+                android:textSize="@dimen/text_size_huge"/>
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/answer_d_text"
+                style="@style/TextView.Label"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/padding_xlarge"
+                android:layout_marginStart="@dimen/padding_xlarge"
+                android:gravity="center_vertical"
+                android:text="The second train is boarded by government agents and all passengers disappear."
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

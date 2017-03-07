@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scroll_view_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_molecule_pattern">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.schanz.core.view.FontTextView
+            style="@style/TextView.Label.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_large"
+            android:gravity="center"
+            android:text="SPONSORS"
+            android:textColor="@color/white_cocaine"
+            android:textSize="32sp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_jax_4_kids_01"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_all_about_kids"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_jea"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_arizona_chemical"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_jax_duval_county_tdc"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_mcdonalds"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_microsoft"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:background="@android:color/white"
+            android:src="@drawable/sponsor_daybrook_foundation"/>
+    </LinearLayout>
+</ScrollView>
+
+

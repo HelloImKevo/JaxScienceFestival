@@ -21,6 +21,7 @@ import java.util.List;
 import com.schanz.jaxsciencefestival.R;
 import com.schanz.jaxsciencefestival.model.NewsEvent;
 import com.schanz.jaxsciencefestival.util.StringHelper;
+import com.schanz.jaxsciencefestival.util.development.Generator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,14 +82,14 @@ public class NewsDashboardAdapter extends RecyclerView.Adapter<NewsDashboardAdap
         @NonNull
         CardView cardView;
 
-        @BindView(R.id.img_profile_picture)
-        ImageView imgProfilePicture;
-        @BindView(R.id.lbl_name)
-        TextView lblName;
-        @BindView(R.id.lbl_message_header)
-        TextView lblMessageHeader;
-        @BindView(R.id.lbl_message_date)
-        TextView lblMessageDate;
+        @BindView(R.id.img_news_picture)
+        ImageView imgNewsPicture;
+        @BindView(R.id.lbl_headline)
+        TextView lblHeadline;
+        @BindView(R.id.lbl_subtitle)
+        TextView lblSubtitle;
+        @BindView(R.id.news_color)
+        View newsColor;
 
         @Nullable
         private NewsEvent mModel;
@@ -115,9 +116,10 @@ public class NewsDashboardAdapter extends RecyclerView.Adapter<NewsDashboardAdap
             if (item != null) {
                 Context context = view().getContext();
                 configureColors(context, item);
-                imgProfilePicture.setImageResource(item.profilePicture);
-                lblName.setText(item.name);
-                lblMessageDate.setText(StringHelper.toDateAtTime(new Date()));
+                imgNewsPicture.setImageResource(item.thumbnail);
+                lblHeadline.setText(item.headline);
+                lblSubtitle.setText(item.fullStory);
+                newsColor.setBackgroundColor(ContextCompat.getColor(context, item.color));
             }
         }
 

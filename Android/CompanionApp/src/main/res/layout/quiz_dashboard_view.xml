@@ -11,70 +11,406 @@
         android:orientation="vertical"
         tools:background="@color/green_shamrock">
 
+        <!-- Top Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_1"
+            <!-- Container Science -->
+            <LinearLayout
+                android:id="@+id/container_science"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_medium"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 1"/>
+                android:background="@color/white_cararra"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_2"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/green_aegean_sea"/>
+
+                    <!-- Category Icon -->
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/padding_large">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_circle_white_24dp"
+                            android:tint="@color/white_cararra"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ring_indicator_thin_white"
+                            android:tint="@color/green_aegean_sea"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/padding_large"
+                            android:src="@drawable/ic_science_flask_white_24dp"
+                            android:tint="@color/green_aegean_sea"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:text="Science"
+                    android:textSize="@dimen/text_size_medium"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Container Technology -->
+            <LinearLayout
+                android:id="@+id/container_technology"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_medium"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 2"/>
+                android:background="@color/white_cararra"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/blue_atlantis"/>
+
+                    <!-- Category Icon -->
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/padding_large">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_circle_white_24dp"
+                            android:tint="@color/white_cararra"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ring_indicator_thin_white"
+                            android:tint="@color/blue_atlantis"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/padding_large"
+                            android:src="@drawable/ic_tech_microchip_white_24dp"
+                            android:tint="@color/blue_atlantis"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:text="Technology"
+                    android:textSize="@dimen/text_size_medium"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
+        <!-- Bottom Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_3"
+            <!-- Container Engineering -->
+            <LinearLayout
+                android:id="@+id/container_engineering"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_medium"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 3"/>
+                android:background="@color/white_cararra"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_4"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/purple_universe"/>
+
+                    <!-- Category Icon -->
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/padding_large">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_circle_white_24dp"
+                            android:tint="@color/white_cararra"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ring_indicator_thin_white"
+                            android:tint="@color/purple_universe"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/padding_large"
+                            android:src="@drawable/ic_engineering_gears_white_24dp"
+                            android:tint="@color/purple_universe"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:text="Engineering"
+                    android:textSize="@dimen/text_size_medium"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/gray_down_pour"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Container Math -->
+            <LinearLayout
+                android:id="@+id/container_math"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_medium"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 4"/>
-        </LinearLayout>
+                android:background="@color/white_cararra"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
 
-            <Button
-                android:id="@+id/btn_5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 5"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/yellow_spoof"/>
 
-            <Button
-                android:id="@+id/btn_6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="QUIZ 6"/>
+                    <!-- Category Icon -->
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/padding_large">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_circle_white_24dp"
+                            android:tint="@color/white_cararra"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ring_indicator_thin_white"
+                            android:tint="@color/yellow_spoof"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/padding_large"
+                            android:src="@drawable/ic_math_operators_white_24dp"
+                            android:tint="@color/yellow_spoof"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.schanz.core.view.FontTextView
+                    style="@style/TextView.Label"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_small"
+                    android:text="Math"
+                    android:textSize="@dimen/text_size_medium"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="@dimen/padding_tiny"
+                        android:src="@drawable/star"
+                        android:tint="@color/yellow_polished_gold"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </merge>
