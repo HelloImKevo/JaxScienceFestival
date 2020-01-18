@@ -2,6 +2,7 @@ package com.schanz.jaxsciencefestival.ai;
 
 import android.content.Context;
 import android.support.annotation.ArrayRes;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
@@ -22,6 +23,8 @@ public class ChatCompanion extends AiCompanion {
     public final Sex sex;
     @DrawableRes
     public final int profilePicture;
+    @ColorRes
+    public final int profileColor;
     @NonNull
     public final MessageHistory messageHistory;
 
@@ -31,10 +34,12 @@ public class ChatCompanion extends AiCompanion {
     public ChatCompanion(
             @NonNull String name,
             @NonNull Sex sex,
-            @DrawableRes int profilePicture) {
+            @DrawableRes int profilePicture,
+            @ColorRes int profileColor) {
         this.name = name;
         this.sex = sex;
         this.profilePicture = profilePicture;
+        this.profileColor = profileColor;
         this.messageHistory = new MessageHistory();
         mRandom = new Random();
     }
@@ -50,13 +55,14 @@ public class ChatCompanion extends AiCompanion {
     @Override
     public Message getMessage(
             @NonNull Context c,
+            @NonNull Message.Source source,
             @NonNull Message.Type type,
             @NonNull Message.Mood mood) {
-        return new Message(Message.Source.AI, type, mood, getAiMessage(c, type, mood));
+        return new Message(source, type, mood, getAiMessageString(c, type, mood));
     }
 
     @NonNull
-    public String getAiMessage(
+    public String getAiMessageString(
             @NonNull Context c,
             @NonNull Message.Type type,
             @NonNull Message.Mood mood) {

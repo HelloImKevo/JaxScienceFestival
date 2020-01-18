@@ -2,13 +2,13 @@ package com.schanz.jaxsciencefestival.manager;
 
 import android.support.annotation.NonNull;
 
-import com.schanz.jaxsciencefestival.ai.ChatCompanion;
+import com.schanz.jaxsciencefestival.model.NewsEvent;
 
 public class NewsManager {
 
     private static NewsManager sInstance;
 
-    private ChatCompanion selectedChatCompanion;
+    private NewsEvent selectedNewsEvent;
 
     private NewsManager() {
     }
@@ -25,11 +25,11 @@ public class NewsManager {
         return sInstance;
     }
 
-    public ChatCompanion getSelectedChatCompanion() {
-        return selectedChatCompanion;
+    public NewsEvent getSelectedNewsEvent() {
+        return selectedNewsEvent;
     }
 
-    public void setSelectedChatCompanion(ChatCompanion selectedChatCompanion) {
-        this.selectedChatCompanion = selectedChatCompanion;
+    public void setSelectedNewsEvent(NewsEvent selectedNewsEvent) {
+        this.selectedNewsEvent = selectedNewsEvent;
     }
 }

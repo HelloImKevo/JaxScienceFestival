@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_molecule_pattern"
+    android:padding="@dimen/padding_xlarge"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.activity.NewsActivity"
+    tools:showIn="@layout/app_bar_news">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_cararra"
+        android:orientation="vertical">
+
+        <!-- Header Components -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:id="@+id/news_image_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/padding_large"
+                android:scaleType="fitXY"
+                android:src="@drawable/news_eng_01_lg"/>
+
+            <!-- Color Strip and Icon -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true">
+
+                <View
+                    android:id="@+id/news_color_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/blue_atlantis"/>
+
+                <!-- Category Icon -->
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp">
+
+                    <ImageView
+                        android:id="@+id/side_bubble_indicator_right"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_circle_white_24dp"
+                        android:tint="@color/white_cararra"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ring_indicator_thin_white"
+                        android:tint="@color/blue_atlantis"/>
+
+                    <ImageView
+                        android:id="@+id/ic_new_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/padding_medium"
+                        android:src="@drawable/ic_tech_microchip_white_24dp"
+                        android:tint="@color/blue_atlantis"/>
+                </RelativeLayout>
+
+                <com.schanz.core.view.FontTextView
+                    android:id="@+id/lbl_category"
+                    style="@style/TextView.Label.Light.Bold"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="70dp"
+                    android:text="Technology"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_medium"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Headline, Date, Full Story -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/padding_medium"
+            android:layout_marginEnd="@dimen/padding_medium"
+            android:layout_marginStart="@dimen/padding_medium"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            tools:background="#afe">
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/lbl_headline"
+                style="@style/TextView.Label.Bold"
+                android:layout_gravity="start"
+                android:textSize="@dimen/text_size_large"
+                tools:text="The Hidden Mystery Behind Biomedical Engineering"/>
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/lbl_date"
+                style="@style/TextView.Label.Italic"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/padding_medium"
+                android:layout_marginTop="@dimen/padding_xsmall"
+                android:textColor="@color/gray_down_pour"
+                android:textSize="@dimen/text_size_small"
+                tools:text="04/26/2016 @ 5:00 PM"/>
+
+            <com.schanz.core.view.FontTextView
+                android:id="@+id/lbl_full_story"
+                style="@style/TextView.Label"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/padding_medium"
+                android:layout_marginTop="@dimen/padding_small"
+                android:textSize="@dimen/text_size_medium"
+                tools:text="@string/news_story_1"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

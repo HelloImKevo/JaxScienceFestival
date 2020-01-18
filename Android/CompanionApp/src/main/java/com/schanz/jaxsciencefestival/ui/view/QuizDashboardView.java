@@ -2,27 +2,32 @@ package com.schanz.jaxsciencefestival.ui.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import java.util.List;
-
 import com.schanz.jaxsciencefestival.R;
-import com.schanz.jaxsciencefestival.model.NewsEvent;
-import com.schanz.jaxsciencefestival.presenter.ModelView;
+import com.schanz.jaxsciencefestival.model.QuizQuestion;
+import com.schanz.jaxsciencefestival.util.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class QuizDashboardView extends FrameLayout implements ModelView<List<NewsEvent>> {
+public class QuizDashboardView extends FrameLayout implements View.OnClickListener {
 
     public interface Listener {
-        void onItemSelected(@NonNull NewsEvent item);
+        void onCategorySelected(@NonNull QuizQuestion.Type category);
     }
+
+    @BindView(R.id.container_science)
+    ViewGroup containerScience;
+    @BindView(R.id.container_technology)
+    ViewGroup containerTechnology;
+    @BindView(R.id.container_engineering)
+    ViewGroup containerEngineering;
+    @BindView(R.id.container_math)
+    ViewGroup containerMath;
 
     private Listener mListener;
 
@@ -45,10 +50,28 @@ public class QuizDashboardView extends FrameLayout implements ModelView<List<New
         }
 
         ButterKnife.bind(this, this);
+
+        containerScience.setOnClickListener(this);
+        containerTechnology.setOnClickListener(this);
+        containerEngineering.setOnClickListener(this);
+        containerMath.setOnClickListener(this);
     }
 
     @Override
-    public void setModel(@Nullable List<NewsEvent> model) {
+    public void onClick(View v) {
+        if (mListener == null) {
+            Logger.e(QuizDashboardView.class.getSimpleName(), "Listener is null");
+            return;
+        }
+        if (v == containerScience) {
+            mListener.onCategorySelected(QuizQuestion.Type.SCIENCE);
+        } else if (v == containerTechnology) {
+            mListener.onCategorySelected(QuizQuestion.Type.TECHNOLOGY);
+        } else if (v == containerEngineering) {
+            mListener.onCategorySelected(QuizQuestion.Type.ENGINEERING);
+        } else if (v == containerMath) {
+            mListener.onCategorySelected(QuizQuestion.Type.MATH);
+        }
     }
 
     public void setListener(Listener listener) {

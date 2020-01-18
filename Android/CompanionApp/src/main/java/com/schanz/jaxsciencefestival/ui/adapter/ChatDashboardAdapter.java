@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +20,7 @@ import java.util.List;
 import com.schanz.jaxsciencefestival.R;
 import com.schanz.jaxsciencefestival.ai.ChatCompanion;
 import com.schanz.jaxsciencefestival.ai.Message;
+import com.schanz.jaxsciencefestival.ui.view.ThinRingIndicatorView;
 import com.schanz.jaxsciencefestival.util.StringHelper;
 
 import butterknife.BindView;
@@ -80,7 +80,7 @@ public class ChatDashboardAdapter extends RecyclerView.Adapter<ChatDashboardAdap
     public static class ChatOverviewViewHolder extends BaseViewHolder<ChatCompanion> {
 
         @NonNull
-        CardView cardView;
+        ViewGroup container;
 
         @BindView(R.id.img_profile_picture)
         ImageView imgProfilePicture;
@@ -90,8 +90,8 @@ public class ChatDashboardAdapter extends RecyclerView.Adapter<ChatDashboardAdap
         TextView lblMessageHeader;
         @BindView(R.id.lbl_message_date)
         TextView lblMessageDate;
-        @BindView(R.id.ic_star)
-        ImageView icStar;
+        @BindView(R.id.thin_ring_indicator_view)
+        ThinRingIndicatorView thinRingIndicatorView;
 
         @Nullable
         private ChatCompanion mModel;
@@ -101,8 +101,8 @@ public class ChatDashboardAdapter extends RecyclerView.Adapter<ChatDashboardAdap
                     .inflate(R.layout.chat_dashboard_view_holder, parent, false));
 
             ButterKnife.bind(this, view());
-            cardView = (CardView) view();
-            cardView.setOnClickListener(new View.OnClickListener() {
+            container = (ViewGroup) view();
+            container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null && mModel != null) {
@@ -126,8 +126,7 @@ public class ChatDashboardAdapter extends RecyclerView.Adapter<ChatDashboardAdap
                     lblMessageHeader.setText(mostRecentMessage.text);
                 }
                 lblMessageDate.setText(StringHelper.toDateAtTime(new Date()));
-
-                testFormulaRatingIndicator();
+                thinRingIndicatorView.setColor(item.profileColor);
             }
         }
 
@@ -144,18 +143,6 @@ public class ChatDashboardAdapter extends RecyclerView.Adapter<ChatDashboardAdap
                 }
                 //cardView.setCardBackgroundColor(primaryColor);
             }
-            testStarTint(context);
-        }
-
-        private void testStarTint(@NonNull Context context) {
-            // icStar.setColorFilter(Generator.getRandomColor(context));
-        }
-
-        private void testFormulaRatingIndicator() {
-            // final int rating = new Random().nextInt(10); // 0 - 9
-            // lblFormulaRating.setText(String.valueOf(rating));
-            // ringIndicatorView.setLevel(rating * 10);
-            // ringIndicatorView.setColor(Generator.getRandomColorRes());
         }
     }
 }

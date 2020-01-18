@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,115 +9,144 @@
     android:layout_marginBottom="@dimen/chat_dashboard_list_item_spacing"
     android:layout_marginEnd="@dimen/stock_list_item_side_margin"
     android:layout_marginStart="@dimen/stock_list_item_side_margin"
-    card_view:cardBackgroundColor="@color/blue_atlantis"
-    card_view:cardCornerRadius="@dimen/card_view_corner_radius"
-    card_view:cardPreventCornerOverlap="false"
-    tools:layout_width="380dp">
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:background="@color/black_darken">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/stock_list_item_height"
-        android:background="@drawable/card_view_overlay"
-        android:baselineAligned="false"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_small">
+    <RelativeLayout
+        android:id="@+id/container_profile_picture"
+        android:layout_width="@dimen/chat_profile_picture_size"
+        android:layout_height="@dimen/chat_profile_picture_size"
+        android:layout_marginStart="@dimen/padding_small">
 
-        <RelativeLayout
-            android:id="@+id/container_profile_picture"
-            android:layout_width="@dimen/chat_profile_picture_size"
-            android:layout_height="@dimen/chat_profile_picture_size"
-            android:layout_marginStart="@dimen/padding_small"
-            android:background="@drawable/bg_round_profile_picture">
-
-            <ImageView
-                android:id="@+id/img_profile_picture"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/padding_xsmall"
-                android:src="@drawable/profile_man_1"/>
-        </RelativeLayout>
-
-        <!-- Name, Header, Date -->
-        <LinearLayout
+        <com.schanz.jaxsciencefestival.ui.view.ThinRingIndicatorView
+            android:id="@+id/thin_ring_indicator_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/padding_small"
-            android:layout_marginStart="@dimen/padding_small"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            tools:background="#afe">
+            android:layout_centerInParent="true"/>
 
-            <com.schanz.core.view.FontTextView
-                android:id="@+id/lbl_name"
-                style="@style/TextView.Label.Bold"
-                android:layout_gravity="start"
-                android:textSize="@dimen/text_size_xlarge"
-                tools:text="Richard"/>
-
-            <com.schanz.core.view.FontTextView
-                android:id="@+id/lbl_message_header"
-                style="@style/TextView.Label"
-                android:layout_gravity="start"
-                android:layout_marginStart="@dimen/padding_medium"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textSize="@dimen/text_size_medium"
-                tools:text="Hey how is it going?"/>
-
-            <com.schanz.core.view.FontTextView
-                android:id="@+id/lbl_message_date"
-                style="@style/TextView.Label.Italic"
-                android:layout_gravity="start"
-                android:layout_marginStart="@dimen/padding_xlarge"
-                android:layout_marginTop="@dimen/padding_small"
-                android:textColor="@color/gray_down_pour"
-                android:textSize="@dimen/text_size_small"
-                tools:text="04/26/2016 @ 5:00 PM"/>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/img_profile_picture"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/padding_medium"
-            android:gravity="center_vertical"
-            android:visibility="gone"
-            tools:background="#ed3">
+            android:layout_margin="@dimen/chat_profile_indicator_padding"
+            android:src="@drawable/profile_man_1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_large"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/side_triangle_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/padding_large"
+            android:src="@drawable/side_triangle_indicator_left"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-2dp"
+            android:layout_toEndOf="@+id/side_triangle_indicator"
+            card_view:cardBackgroundColor="@color/white_cararra"
+            card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+            card_view:cardPreventCornerOverlap="false">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_small">
 
-                <ImageView
-                    android:id="@+id/ic_star"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/star"/>
+                <!-- Name, Header, Date -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/padding_small"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    tools:background="#afe">
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_trophy_variant_white_24dp"/>
+                    <com.schanz.core.view.FontTextView
+                        android:id="@+id/lbl_name"
+                        style="@style/TextView.Label"
+                        android:layout_gravity="start"
+                        android:textSize="@dimen/text_size_xlarge"
+                        tools:text="Richard"/>
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_trophy_variant_white_24dp"/>
+                    <com.schanz.core.view.FontTextView
+                        android:id="@+id/lbl_message_header"
+                        style="@style/TextView.Label"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/padding_medium"
+                        android:maxLines="6"
+                        android:textSize="@dimen/text_size_medium"
+                        tools:text="Hey how is it going?"/>
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_trophy_variant_white_24dp"/>
+                    <com.schanz.core.view.FontTextView
+                        android:id="@+id/lbl_message_date"
+                        style="@style/TextView.Label.Italic"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/padding_xlarge"
+                        android:layout_marginTop="@dimen/padding_small"
+                        android:textColor="@color/gray_down_pour"
+                        android:textSize="@dimen/text_size_small"
+                        tools:text="04/26/2016 @ 5:00 PM"/>
+                </LinearLayout>
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_trophy_variant_white_24dp"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/padding_medium"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    tools:background="#ed3">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ic_star"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/star"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_trophy_variant_white_24dp"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_trophy_variant_white_24dp"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_trophy_variant_white_24dp"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_trophy_variant_white_24dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+
+</LinearLayout>
+
 
 

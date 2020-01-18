@@ -8,6 +8,7 @@ public class DataBlob {
 
     private List<NewsEvent> mNewsEvents;
     private List<ChatCompanion> mChatCompanions;
+    private List<QuizQuestion> mQuizQuestions;
 
     public DataBlob() {
     }
@@ -26,6 +27,14 @@ public class DataBlob {
 
     public void setChatCompanions(List<ChatCompanion> chatCompanions) {
         mChatCompanions = chatCompanions;
+    }
+
+    public List<QuizQuestion> getQuizQuestions() {
+        return mQuizQuestions;
+    }
+
+    public void setQuizQuestions(List<QuizQuestion> quizQuestions) {
+        mQuizQuestions = quizQuestions;
     }
 
     public int size() {

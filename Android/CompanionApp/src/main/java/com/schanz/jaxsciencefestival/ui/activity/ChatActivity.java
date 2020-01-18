@@ -3,6 +3,7 @@ package com.schanz.jaxsciencefestival.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -42,6 +43,8 @@ public class ChatActivity extends BaseActivity implements
     @BindView(R.id.drawer_nav_view)
     NavigationView drawerNavView;
 
+    @BindView(R.id.profile_color_header)
+    View profileColorHeader;
     @BindView(R.id.img_profile_picture)
     ImageView imgProfilePicture;
     @BindView(R.id.lbl_name)
@@ -207,7 +210,8 @@ public class ChatActivity extends BaseActivity implements
                         type = Message.Type.STATEMENT;
                     }
                     chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            ChatActivity.this, type, Message.Mood.POSITIVE));
+                            ChatActivity.this,
+                            (val < 2 ? Message.Source.AI : Message.Source.USER), type, Message.Mood.POSITIVE));
                     refreshMessageHistory();
                 }
             }
@@ -229,7 +233,8 @@ public class ChatActivity extends BaseActivity implements
                         type = Message.Type.STATEMENT;
                     }
                     chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            ChatActivity.this, type, Message.Mood.NEUTRAL));
+                            ChatActivity.this,
+                            (val < 2 ? Message.Source.AI : Message.Source.USER), type, Message.Mood.NEUTRAL));
                     refreshMessageHistory();
                 }
             }
@@ -251,7 +256,8 @@ public class ChatActivity extends BaseActivity implements
                         type = Message.Type.STATEMENT;
                     }
                     chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            ChatActivity.this, type, Message.Mood.NEGATIVE));
+                            ChatActivity.this,
+                            (val < 2 ? Message.Source.AI : Message.Source.USER), type, Message.Mood.NEGATIVE));
                     refreshMessageHistory();
                 }
             }
@@ -261,6 +267,7 @@ public class ChatActivity extends BaseActivity implements
     private void refreshMessageHistory() {
         ChatCompanion chatCompanion = ChatManager.instance().getSelectedChatCompanion();
         if (chatCompanion != null) {
+            profileColorHeader.setBackgroundColor(ContextCompat.getColor(this, chatCompanion.profileColor));
             imgProfilePicture.setImageResource(chatCompanion.profilePicture);
             lblName.setText(chatCompanion.name);
             chatMessageHistoryListView.setModel(chatCompanion.messageHistory);

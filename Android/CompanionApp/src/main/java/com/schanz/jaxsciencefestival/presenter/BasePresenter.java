@@ -9,7 +9,7 @@ public abstract class BasePresenter<M, V> {
     private M model;
     private WeakReference<V> view;
 
-    protected M model() {
+    public M model() {
         return model;
     }
 

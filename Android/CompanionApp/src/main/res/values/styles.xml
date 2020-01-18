@@ -94,6 +94,11 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="TextView.Label.SingleLine.Bold" parent="@style/TextView.Label.SingleLine">
+        <item name="android:textStyle">bold</item>
+        <item name="custom_font">@string/font_century_gothic_bold</item>
+    </style>
+
     <!-- TextView (Light) -->
     <style name="TextView.Label.Light" parent="@style/TextView.Label">
         <item name="android:textColor">@color/white_cararra</item>

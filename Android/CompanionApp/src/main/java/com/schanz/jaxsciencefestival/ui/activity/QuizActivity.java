@@ -1,37 +1,35 @@
 package com.schanz.jaxsciencefestival.ui.activity;
 
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
+import java.util.List;
 
 import com.schanz.jaxsciencefestival.R;
-import com.schanz.jaxsciencefestival.ai.ChatCompanion;
-import com.schanz.jaxsciencefestival.ai.Message;
-import com.schanz.jaxsciencefestival.manager.ChatManager;
-import com.schanz.jaxsciencefestival.presenter.ChatView;
-import com.schanz.jaxsciencefestival.presenter.MainPresenter;
-import com.schanz.jaxsciencefestival.ui.view.ChatMessageHistoryListView;
+import com.schanz.jaxsciencefestival.manager.QuizManager;
+import com.schanz.jaxsciencefestival.model.QuizQuestion;
 import com.schanz.jaxsciencefestival.util.Logger;
+import com.schanz.jaxsciencefestival.util.ToastHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class QuizActivity extends BaseActivity implements
         NavigationView.OnNavigationItemSelectedListener,
-        ChatView {
+        View.OnClickListener {
 
     private static final String TAG = QuizActivity.class.getSimpleName();
 
@@ -42,38 +40,47 @@ public class QuizActivity extends BaseActivity implements
     @BindView(R.id.drawer_nav_view)
     NavigationView drawerNavView;
 
-    @BindView(R.id.img_profile_picture)
-    ImageView imgProfilePicture;
-    @BindView(R.id.lbl_name)
-    TextView lblName;
-    @BindView(R.id.chat_message_history_list_view)
-    ChatMessageHistoryListView chatMessageHistoryListView;
+    @BindView(R.id.header_color)
+    View headerColor;
+    @BindView(R.id.ring_color)
+    ImageView ringColor;
+    @BindView(R.id.image_icon)
+    ImageView imageIcon;
 
-    @BindView(R.id.btn_positive)
-    Button btnPositive;
-    @BindView(R.id.btn_neutral)
-    Button btnNeutral;
-    @BindView(R.id.btn_negative)
-    Button btnNegative;
+    @BindView(R.id.lbl_category)
+    TextView lblCategory;
+    @BindView(R.id.lbl_question)
+    TextView lblQuestion;
 
-    private MainPresenter mPresenter;
+    @BindView(R.id.answer_a)
+    ViewGroup answerA;
+    @BindView(R.id.answer_b)
+    ViewGroup answerB;
+    @BindView(R.id.answer_c)
+    ViewGroup answerC;
+    @BindView(R.id.answer_d)
+    ViewGroup answerD;
+
+    @BindView(R.id.answer_a_text)
+    TextView answerAText;
+    @BindView(R.id.answer_b_text)
+    TextView answerBText;
+    @BindView(R.id.answer_c_text)
+    TextView answerCText;
+    @BindView(R.id.answer_d_text)
+    TextView answerDText;
+
+    private int mQuizIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //if (savedInstanceState == null) {
-        //    mPresenter = new MainPresenter();
-        //} else {
-        //    mPresenter = PresenterManager.instance().restorePresenter(savedInstanceState);
-        //    if (mPresenter == null) {
-        //        mPresenter = new MainPresenter();
-        //    }
-        //}
-
         setContentView(R.layout.quiz_activity);
 
         ButterKnife.bind(this);
+
+        mQuizIndex = 0;
 
         initComponents();
     }
@@ -82,53 +89,102 @@ public class QuizActivity extends BaseActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        //mPresenter.bindView(this);
-        //if (mPresenter.loading()) {
-        //    mProgressDialog.show();
-        //}
-        refreshMessageHistory();
+        syncUi();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //mPresenter.unbindView();
-        //mProgressDialog.dismiss();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        //PresenterManager.instance().savePresenter(mPresenter, outState);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_chat, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_chat_one) {
-            Toast.makeText(QuizActivity.this, "Chat One not implemented!", Toast.LENGTH_LONG).show();
-            return true;
-        } else if (id == R.id.action_chat_two) {
-            Toast.makeText(QuizActivity.this, "Chat Two not implemented!", Toast.LENGTH_LONG).show();
-            return true;
-        } else if (id == R.id.action_chat_three) {
-            Toast.makeText(QuizActivity.this, "Chat Three not implemented!", Toast.LENGTH_LONG).show();
-            return true;
+    private void syncUi() {
+        List<QuizQuestion> questions = QuizManager.instance().getQuizQuestions();
+        if (questions.isEmpty()) {
+            Logger.w(TAG, "syncUi :: questions is empty!");
+            return;
         }
+        if (mQuizIndex >= questions.size()) {
+            mQuizIndex = 0;
+        }
+        Logger.i(TAG, "syncUi :: quiz index = " + mQuizIndex);
+        QuizQuestion question = getCurrent();
+        List<String> answers = question.getPossibleAnswers();
+        if (answers.size() < 4) {
+            Logger.w(TAG, "syncUi :: there are not enough answers! " + answers.size());
+            return;
+        }
+        @ColorInt int color;
+        switch (question.type) {
+            case SCIENCE:
+                color = ContextCompat.getColor(this, R.color.green_aegean_sea);
+                lblCategory.setText("Science Question");
+                lblCategory.setTextColor(color);
+                headerColor.setBackgroundColor(color);
+                ringColor.setColorFilter(color);
+                imageIcon.setColorFilter(color);
+                imageIcon.setImageResource(R.drawable.ic_science_flask_white_24dp);
+                break;
+            case TECHNOLOGY:
+                color = ContextCompat.getColor(this, R.color.blue_atlantis);
+                lblCategory.setText("Technology Question");
+                lblCategory.setTextColor(color);
+                headerColor.setBackgroundColor(color);
+                ringColor.setColorFilter(color);
+                imageIcon.setColorFilter(color);
+                imageIcon.setImageResource(R.drawable.ic_tech_microchip_white_24dp);
+                break;
+            case ENGINEERING:
+                color = ContextCompat.getColor(this, R.color.purple_universe);
+                lblCategory.setText("Engineering Question");
+                lblCategory.setTextColor(color);
+                headerColor.setBackgroundColor(color);
+                ringColor.setColorFilter(color);
+                imageIcon.setColorFilter(color);
+                imageIcon.setImageResource(R.drawable.ic_engineering_gears_white_24dp);
+                break;
+            case MATH:
+                color = ContextCompat.getColor(this, R.color.yellow_polished_gold);
+                lblCategory.setText("Math Question");
+                lblCategory.setTextColor(color);
+                headerColor.setBackgroundColor(color);
+                ringColor.setColorFilter(color);
+                imageIcon.setColorFilter(color);
+                imageIcon.setImageResource(R.drawable.ic_math_operators_white_24dp);
+                break;
+        }
+        lblQuestion.setText(question.questionText);
+        answerAText.setText(question.getPossibleAnswers().get(0));
+        answerBText.setText(question.getPossibleAnswers().get(1));
+        answerCText.setText(question.getPossibleAnswers().get(2));
+        answerDText.setText(question.getPossibleAnswers().get(3));
+    }
 
-        return super.onOptionsItemSelected(item);
+    private QuizQuestion getCurrent() {
+        List<QuizQuestion> questions = QuizManager.instance().getQuizQuestions();
+        if (questions.isEmpty()) {
+            Logger.w(TAG, "syncUi :: questions is empty!");
+        }
+        return questions.get(mQuizIndex);
+    }
+
+    @Override
+    public void onClick(View v) {
+        QuizQuestion question = getCurrent();
+
+        if (v == answerA) {
+            onUserAnswer(question, answerAText);
+        } else if (v == answerB) {
+            onUserAnswer(question, answerBText);
+        } else if (v == answerC) {
+            onUserAnswer(question, answerCText);
+        } else if (v == answerD) {
+            onUserAnswer(question, answerDText);
+        }
+    }
+
+    private void onUserAnswer(QuizQuestion question, TextView textView) {
+        if (question.isCorrect(textView.getText().toString())) {
+            ToastHelper.showBlue("You got it right!");
+        } else {
+            ToastHelper.showRed("Wrong answer, but practice makes perfect!");
+        }
+        mQuizIndex++;
+        syncUi();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -164,21 +220,6 @@ public class QuizActivity extends BaseActivity implements
         }
     }
 
-    @Override
-    public void showLoading() {
-        Logger.i(TAG, "showLoading....");
-        // mProgressDialog.show();
-    }
-
-    @Override
-    public void showEmpty() {
-        // TODO: show empty view / message
-        Logger.i(TAG, "showEmpty....");
-        // mProgressDialog.dismiss();
-        // newsDashboardListView.setModel(new ArrayList<NewsEvent>());
-        // chatDashboardListView.setModel(new ArrayList<ChatCompanion>());
-    }
-
     private void initComponents() {
         setSupportActionBar(toolbar);
 
@@ -190,93 +231,9 @@ public class QuizActivity extends BaseActivity implements
         drawerNavView.setNavigationItemSelectedListener(this);
         // mProgressDialog = new ProgressDialog(this);
 
-        btnPositive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChatCompanion chatCompanion = ChatManager.instance().getSelectedChatCompanion();
-                if (chatCompanion != null) {
-                    int val = new Random().nextInt(4);
-                    Message.Type type;
-                    if (val == 0) {
-                        type = Message.Type.QUESTION;
-                    } else if (val == 1) {
-                        type = Message.Type.RESPONSE;
-                    } else if (val == 2) {
-                        type = Message.Type.GREETING;
-                    } else {
-                        type = Message.Type.STATEMENT;
-                    }
-                    chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            QuizActivity.this, type, Message.Mood.POSITIVE));
-                    refreshMessageHistory();
-                }
-            }
-        });
-        btnNeutral.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChatCompanion chatCompanion = ChatManager.instance().getSelectedChatCompanion();
-                if (chatCompanion != null) {
-                    int val = new Random().nextInt(4);
-                    Message.Type type;
-                    if (val == 0) {
-                        type = Message.Type.QUESTION;
-                    } else if (val == 1) {
-                        type = Message.Type.RESPONSE;
-                    } else if (val == 2) {
-                        type = Message.Type.GREETING;
-                    } else {
-                        type = Message.Type.STATEMENT;
-                    }
-                    chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            QuizActivity.this, type, Message.Mood.NEUTRAL));
-                    refreshMessageHistory();
-                }
-            }
-        });
-        btnNegative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChatCompanion chatCompanion = ChatManager.instance().getSelectedChatCompanion();
-                if (chatCompanion != null) {
-                    int val = new Random().nextInt(4);
-                    Message.Type type;
-                    if (val == 0) {
-                        type = Message.Type.QUESTION;
-                    } else if (val == 1) {
-                        type = Message.Type.RESPONSE;
-                    } else if (val == 2) {
-                        type = Message.Type.GREETING;
-                    } else {
-                        type = Message.Type.STATEMENT;
-                    }
-                    chatCompanion.onUserResponse(chatCompanion.getMessage(
-                            QuizActivity.this, type, Message.Mood.NEGATIVE));
-                    refreshMessageHistory();
-                }
-            }
-        });
-    }
-
-    private void refreshMessageHistory() {
-        ChatCompanion chatCompanion = ChatManager.instance().getSelectedChatCompanion();
-        if (chatCompanion != null) {
-            imgProfilePicture.setImageResource(chatCompanion.profilePicture);
-            lblName.setText(chatCompanion.name);
-            chatMessageHistoryListView.setModel(chatCompanion.messageHistory);
-        }
-    }
-
-    private void hideDetailView() {
-        if (isTabletConfiguration()) {
-            //AnimUtil.fadeOut(this, quoteDetailView);
-        } else {
-            //AnimUtil.slideInFromLeftToReplace(this, chatDashboardListView, quoteDetailView);
-        }
-    }
-
-    private boolean isDetailViewShowing() {
-        return false;
-        //return quoteDetailView.getVisibility() == View.VISIBLE;
+        answerA.setOnClickListener(this);
+        answerB.setOnClickListener(this);
+        answerC.setOnClickListener(this);
+        answerD.setOnClickListener(this);
     }
 }
